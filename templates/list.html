@@ -1,0 +1,78 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Pick pages from PDF</h1>
+<h3>Enter page numbers below. Use comma(,) to seperate page numbers. Use hypen (-) to give range</h3>
+
+<br>
+
+<form id="my_form" method="POST" enctype="multipart/form-data" action="/pick">
+
+  <div class="form-group">
+    <label for="txtPageNos">Page numbers</label>
+    <input name="pages" type="text" class="form-control" id="txtPageNos" aria-describedby="pageNos" placeholder="Enter page numbers" />
+    <small id="emailHelp" class="form-text text-muted">Example : 1,2,6, 11-15, 19</small>
+  </div>
+
+
+    <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                            Upload PDF
+                        </label>
+                        <div class="col-sm-9">
+                            <span class="btn btn-default btn-file">
+                                <input name="file"  type="file" class="file"  data-show-upload="true" data-show-caption="true">
+                            </span>
+                        </div>
+                    </div>
+
+
+
+
+
+  <br>
+<br>
+
+<a href="javascript:{}"  onclick="document.getElementById('my_form').submit(); return false;" class="btn btn-success btn-sm">
+  <i class="glyphicon glyphicon-plus"></i>
+  Pick
+</a>
+
+</form>
+
+
+
+
+
+<!--{% for book in books %}
+<div class="media">
+  <a href="/books/{{book.id}}">
+    <div class="media-left">
+      {% if book.imageUrl %}
+        <img src="{{book.imageUrl}}">
+      {% else %}
+        <img src="http://placekitten.com/g/128/192">
+      {% endif %}
+    </div>
+    <div class="media-body">
+      <h4>{{book.title}}</h4>
+      <p>{{book.author}}</p>
+    </div>
+  </a>
+</div>
+{% else %}
+<p>No books found</p>
+{% endfor %}
+
+{% if last_title %}
+<nav>
+  <ul class="pager">
+    <li><a href="?start_after={{last_title}}">More</a></li>
+  </ul>
+</nav>
+{% endif %}
+-->
+{% endblock %}
